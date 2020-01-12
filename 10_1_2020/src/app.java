@@ -1,18 +1,12 @@
-
-
 import java.util.*;
 
-public class HashSet {
-
-    /**
-     * @param args the command line arguments
-     */
+public class app {
     public static void main(String[] args) {
         Student st = new Student("Bn", 3.5f);
         int result = st.hashCode();
         System.out.println("Hash Code Value= " + result);
 
-        HashSet<Student> set=new HashSet<Student>();
+        HashSet<Student> set=new HashSet();
         set.add(new Student("Nguyen Van An", 2));
         set.add(new Student("Nguyen Van An", 2)); //Không lưu giá trị trùng
         set.add(new Student("AVo Huy Hoang", 2));
@@ -33,8 +27,22 @@ public class HashSet {
         {
             System.out.println(i.next());
         }
-    }
+        Student s1 = new Student("Vo Thien Bao", 2);
+        Student s2 = new Student("Vo Minh", 2);
+        if (s1.equals(s2)){
+            System.out.println("Bang diem nhau");
+        }
 
+        PriorityQueue<String> pQueue = new PriorityQueue<>(Comparator.comparing(String::toString).reversed());
+
+        // Adding items to the pQueue using add()
+        pQueue.add("A");
+        pQueue.add("G");
+        pQueue.add("D");
+        pQueue.add("J");
+
+        System.out.println(pQueue);
+    }
 }
 
 class Student {
@@ -69,7 +77,7 @@ class Student {
 
     @Override
     public int hashCode(){
-//    return (int)(this.Diemtb);
+//    return (int)(this.Diemtb);  
         System.out.println("This function runned!" + this.Hoten.charAt(0));
         return (this.Hoten.charAt(0));
     }
@@ -89,7 +97,8 @@ class Student {
         if (Float.floatToIntBits(this.Diemtb) != Float.floatToIntBits(other.Diemtb)) {
             return false;
         }
-        return Objects.equals(this.Hoten, other.Hoten);
+        return true;
+//        return Objects.equals(this.Hoten, other.Hoten);
     }
 
 }
