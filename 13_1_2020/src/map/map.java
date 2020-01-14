@@ -20,6 +20,7 @@ public class map {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
 
+
         if (hashMap.containsKey(1)) {
             System.out.println("chua key 1");
         }

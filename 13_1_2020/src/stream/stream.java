@@ -40,6 +40,7 @@ public class stream {
                 .filter(student -> student.diemTb < 7)
                 .count();
         System.out.println(countStudent);
+
 //
         Map<Integer, String> studentMap = studentList.stream()
                 .filter(s -> s.id < 3)
