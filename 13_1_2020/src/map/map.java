@@ -2,6 +2,7 @@ package map;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 
 
@@ -35,6 +36,21 @@ public class map {
     }
 }
 class Student {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id &&
+                Float.compare(student.diemTb, diemTb) == 0 &&
+                Objects.equals(hoTen, student.hoTen);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, hoTen, diemTb);
+    }
+
     int id;
     String hoTen;
     float diemTb;
